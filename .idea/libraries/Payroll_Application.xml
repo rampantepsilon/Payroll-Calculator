@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Payroll_Application">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Payroll_Application.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
