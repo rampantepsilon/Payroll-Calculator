@@ -13,9 +13,9 @@ public class PayrollApplication extends JFrame {
     private final Container contents;
     private final JPanel data, payButtons, filingCheck, payRate, payRateWrapper;
     private final JTextArea calculations;
-    private final JTextField inPayRate, inHours, inDependents, inDeductions, inAdjustments;
+    private final JTextField inPayRate, inHours, inDependents, inDeductions/*, inAdjustments*/;
     private final JLabel payRateLabel, hoursLabel, filingLabel, 
-            dependentsLabel, deductionsLabel, payLabel, adjustmentsLabel;
+            dependentsLabel, deductionsLabel, payLabel/*, adjustmentsLabel*/;
     private final JButton inWeekly, inBiweekly, /*inCustom,*/ clear;
     private final ButtonGroup filing;
     private final JRadioButton single, married;
@@ -44,7 +44,7 @@ public class PayrollApplication extends JFrame {
         inHours = new JTextField(6);
         inDependents = new JTextField(2);
         inDeductions = new JTextField(7);
-        inAdjustments = new JTextField(8);
+        //inAdjustments = new JTextField(8);
         
         //Marital Status Buttons
         single = new JRadioButton("Single",true);
@@ -60,7 +60,7 @@ public class PayrollApplication extends JFrame {
         filingLabel = new JLabel("Select your marital status:");
         dependentsLabel = new JLabel("Enter amount of dependents:");
         deductionsLabel = new JLabel("Enter any pre-tax deductions:");
-        adjustmentsLabel = new JLabel("Enter any adjustments:");
+        //adjustmentsLabel = new JLabel("Enter any adjustments:");
         payLabel = new JLabel("Select the button for your pay bracket:");
         
         //filingCheck JPanel
@@ -96,8 +96,8 @@ public class PayrollApplication extends JFrame {
         data.add(inDependents);
         data.add(deductionsLabel);
         data.add(inDeductions);
-        data.add(adjustmentsLabel);
-        data.add(inAdjustments);
+        //data.add(adjustmentsLabel);
+        //data.add(inAdjustments);
         
         //add JPanels to contents
         contents.add(data);
@@ -143,7 +143,7 @@ public class PayrollApplication extends JFrame {
             int filing = filingStatus;
             double dependents = 0;
             double deductions = 0;
-            double adjustments = 0;
+            //double adjustments = 0;
             String maritalValue = "null";
             
             try{
@@ -170,12 +170,12 @@ public class PayrollApplication extends JFrame {
             catch (NumberFormatException e){
                 inDeductions.setText("");
             }
-            try{
+            /*try{
                 adjustments = Double.parseDouble(inAdjustments.getText());
             }
             catch (NumberFormatException e){
                 inAdjustments.setText("");
-            }
+            }*/
             double hoursReg = 0;
             int paySchedule = 0;
             
@@ -214,7 +214,7 @@ public class PayrollApplication extends JFrame {
             medicareTax = medicareTax/100;
             
             double netPay = 0;
-            double pto = 0;
+            //double pto = 0;
             netPay = grossPay-deductions-fedWithheld-ssTax-medicareTax;
             /*if (ae.getSource() != inCustom){
                 netPay = grossPay-deductions-fedWithheld-ssTax-medicareTax;
@@ -278,7 +278,7 @@ public class PayrollApplication extends JFrame {
                 inHours.setText("");
                 inDependents.setText("");
                 inDeductions.setText("");
-                inAdjustments.setText("");
+                //inAdjustments.setText("");
             }
         }
     }
